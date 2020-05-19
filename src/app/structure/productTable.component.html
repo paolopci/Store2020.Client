@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <td>{{product.name}}</td>
+    <td>{{product.category}}</td>
+    <td class="text-right">{{product.price}} €</td>
+    <td>
+      <button class="btn btn-primary btn-sm" [routerLink]="['/detail',product.productId]">Details</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

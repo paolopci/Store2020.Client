@@ -17,7 +17,7 @@ export class Repository {
   suppliers: Supplier[]=[];
 
   constructor(private http: HttpClient) {
-    //this.filter.category = 'soccer';
+   
     this.filter.related = true;
     this.getProducts();
   }
