@@ -1,0 +1,6 @@
+<div ngbDropdown class="d-inline-block">
+  <button class="btn btn-outline-primary" id="sortMenu" ngbDropdownToggle>Toggle dropdown</button>
+  <div ngbDropdownMenu aria-labelledby="sortMenu">
+    <button class="dropdown-item" *ngFor="let item of sortELement" (click)="changeElement(item)">{{item}}</button>
+  </div>
+</div>

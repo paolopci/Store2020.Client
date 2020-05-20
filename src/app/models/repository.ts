@@ -7,6 +7,11 @@ import { Supplier } from "./supplier.model";
 const productUrl = "/api/products";
 const supplierUrl = "/api/suppliers";
 
+type productsMetaData={
+  data: Product[],
+  categories: string[];
+}
+
 @Injectable()
 export class Repository {
   product: Product;
@@ -14,13 +19,16 @@ export class Repository {
   products: Product[];
   filter: Filter = new Filter();
   // Chapter 6
-  suppliers: Supplier[]=[];
+  suppliers: Supplier[] = [];
+  // Chapter 8
+  categories: string[]=[];
 
   constructor(private http: HttpClient) {
-   
+
     this.filter.related = true;
-    this.getProducts();
+  //  this.getProducts();
   }
+
   // Get - Get Product, Supplier and List Products,Suppliers
   getProduct(id: number) {
     this.http.get<Product>("/api/products/" + id).subscribe(p => {
@@ -39,7 +47,12 @@ export class Repository {
       url += `&search=${this.filter.search}`;
     }
 
-    this.http.get<Product[]>(url).subscribe(prods => this.products = prods);
+    url += "&metadata=true";
+
+    this.http.get<productsMetaData>(url).subscribe(md => {
+      this.products = md.data;
+      this.categories = md.categories;
+    });
   }
 
   getSuppliers() {
@@ -78,6 +91,7 @@ export class Repository {
       }
     });
   }
+
   // Update - Update Product and Supplier
   replaceProduct(prod: Product) {
     let data = {

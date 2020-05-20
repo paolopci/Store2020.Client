@@ -3,14 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 // Chapter 7
 import { ProductTableComponent } from "./structure/productTable.component";
 import { ProductDetailComponent } from "./structure/productDetail.component";
+// Chapter 8
+import { ProductSelectionComponent } from "./store/productSelection.component";
 
 
 const routes: Routes = [
-  { path: "table", component: ProductTableComponent },
-  { path: "table/:id", component: ProductTableComponent },
-  { path: "detail", component: ProductDetailComponent },
-  { path: "detail/:id", component: ProductDetailComponent },
-  { path: "", component: ProductTableComponent }
+  //{ path: "table", component: ProductTableComponent },
+  //{ path: "table/:id", component: ProductTableComponent },
+  //{ path: "detail", component: ProductDetailComponent },
+  //{ path: "detail/:id", component: ProductDetailComponent },
+
+  // Chapter 8
+  { path: "store/:category", component: ProductSelectionComponent },
+  { path: "store", component: ProductSelectionComponent },
+  { path: "", redirectTo: "/store", pathMatch: "full" }
 ];
 
 @NgModule({
