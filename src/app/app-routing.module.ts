@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// Chapter 7
-import { ProductTableComponent } from "./structure/productTable.component";
-import { ProductDetailComponent } from "./structure/productDetail.component";
+
 // Chapter 8
 import { ProductSelectionComponent } from "./store/productSelection.component";
+// Chapter 9
+import { CartDetailComponent } from "./store/cartDetail.component";
 
 
 const routes: Routes = [
-  //{ path: "table", component: ProductTableComponent },
-  //{ path: "table/:id", component: ProductTableComponent },
-  //{ path: "detail", component: ProductDetailComponent },
-  //{ path: "detail/:id", component: ProductDetailComponent },
-
+  // Chapter 9
+  { path: "cart", component: CartDetailComponent },
   // Chapter 8
   { path: "store/:category", component: ProductSelectionComponent },
   { path: "store", component: ProductSelectionComponent },

@@ -8,7 +8,11 @@ import { RatingsComponent } from "./ratings.component";
 import { ProductSelectionComponent } from "./productSelection.component";
 // Chapter 8
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { NgbdDropdownBasic } from "./dropdown.component";
+//import { NgbdDropdownBasic } from "./dropdown.component";
+// Chapter 9
+import { CartDetailComponent } from "./cartDetail.component";
+import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
 @
 NgModule({
@@ -19,9 +23,10 @@ NgModule({
     ProductListComponent,
     ProductSelectionComponent,
     RatingsComponent,
-    NgbdDropdownBasic
+   // NgbdDropdownBasic,
+    CartDetailComponent
   ],
-  imports: [BrowserModule, NgbModule],
+  imports: [BrowserModule, NgbModule, FormsModule, RouterModule],
   exports: [ProductSelectionComponent]
 })
 export class StoreModule {
